@@ -5,5 +5,5 @@ for i in range(0, 10):
             if j > i:
                 print("{:d}{:d}".format(i, j), end="")
                 if i != 8 or j != 9:
-                    print(", ", end="")
-print("");
+                    print("{:s}".format(", "), end="")
+print("{:s}".format(""))
