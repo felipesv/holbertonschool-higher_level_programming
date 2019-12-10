@@ -35,10 +35,16 @@ listint_t *insert_node(listint_t **head, int number)
 		{
 			new_list->next = current->next;
 			current->next = new_list;
-			break;
+			return (new_list);
+		}
+		if (current->next == NULL)
+		{
+			new_list->next = NULL;
+			current->next = new_list;
+			return (new_list);
 		}
 		current = (*current).next;
 	}
-	current->next = new_list;
-	return (new_list);
+
+	return (NULL);
 }
