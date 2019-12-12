@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-import sys
-from calculator_1 import add, sub, mul, div
-
 if (__name__ == "__main__"):
+    import sys
+    from calculator_1 import add, sub, mul, div
+
     lenAr = len(sys.argv)
     if (lenAr != 4):
         print("{:s}".
               format("Usage: ./100-my_calculator.py <a> <operator> <b>"))
         exit(1)
+
     opr = sys.argv[2]
     if (opr != "+" and opr != "-" and opr != "*" and opr != "/"):
         print("{:s}".
@@ -25,4 +26,3 @@ if (__name__ == "__main__"):
         print("{:d} * {:d} = {:d}".format(a, b, mul(a, b)))
     if (opr == "/"):
         print("{:d} / {:d} = {:d}".format(a, b, div(a, b)))
-    exit(0)
