@@ -1,2 +1,1 @@
-#!/usr/bin/python3
-pythoniscool
+#!/usr/bin/python3 pythoniscool
