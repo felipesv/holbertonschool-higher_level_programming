@@ -8,7 +8,7 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *c1 = *head, *c2 = *head;
-	int sizeL = 0, i;
+	int sizeL = 0, i, middle = 0;
 
 	if (head == NULL || *head == NULL || (*head)->next == NULL)
 		return (1);
@@ -18,6 +18,8 @@ int is_palindrome(listint_t **head)
 		c2 = c2->next;
 		sizeL++;
 	}
+
+	middle = sizeL / 2;
 
 	while (c1 != NULL && c2 != NULL)
 	{
@@ -29,12 +31,12 @@ int is_palindrome(listint_t **head)
 			c2 = c2->next;
 
 		sizeL = sizeL - 1;
-		c1 = c1->next;
 
-		if (c2->next == c1)
+		if (middle == sizeL)
 			break;
-	}
 
+		c1 = c1->next;
+	}
 	return (1);
 
 }
