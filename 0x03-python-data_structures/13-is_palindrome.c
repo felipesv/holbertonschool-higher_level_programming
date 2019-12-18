@@ -26,16 +26,14 @@ int is_palindrome(listint_t **head)
 		if (c1->n != c2->n)
 			return (0);
 
-		c2 = *head;
-		for (i = 0; i < (sizeL - 1); i++)
+		c1 = c1->next;
+		c2 = c1;
+		sizeL = sizeL - 2;
+
+		for (i = 0; i < (sizeL); i++)
 			c2 = c2->next;
-
-		sizeL = sizeL - 1;
-
 		if (middle == sizeL)
 			break;
-
-		c1 = c1->next;
 	}
 	return (1);
 
