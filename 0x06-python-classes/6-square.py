@@ -62,6 +62,10 @@ class Square:
     def my_print(self):
         """ orint the square
         """
+        if self._Square__size == 0:
+            print("")
+            return
+            
         i = 0
         for k in range(self._Square__position[1]):
             print("")
