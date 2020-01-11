@@ -1,0 +1,44 @@
+The ``add_integer`` module
+==========================
+
+Using ``add_integer``
+---------------------
+
+import the add_integer module.
+>>> add_integer = __import__('0-add_integer').add_integer
+
+add positive and negative number
+>>> add_integer(20, -80)
+-60
+
+add integer and float number
+>>> add_integer(-20, -8.0)
+-28
+
+add two positive floats
+>>> add_integer(2.5, 8.5)
+10
+
+add string and positive
+>>> add_integer("asas", 8)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+add, passing only one parameter like string
+>>> add_integer("asas")
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+add, passing only b like string
+>>> add_integer(2, "asas")
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+add, passing only string
+>>> add_integer(float(2), float(8))
+10
+
+add, passing two None
+>>> add_integer(None, None)
+Traceback (most recent call last):
+TypeError: a must be an integer
