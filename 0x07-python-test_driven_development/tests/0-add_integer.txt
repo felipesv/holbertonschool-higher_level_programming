@@ -34,11 +34,11 @@ add, passing only b like string
 Traceback (most recent call last):
 TypeError: b must be an integer
 
-add, passing only string
+add, passing only floats
 >>> add_integer(float(2), float(8))
 10
 
-add, passing two None
+add, passing two None variables
 >>> add_integer(None, None)
 Traceback (most recent call last):
 TypeError: a must be an integer
