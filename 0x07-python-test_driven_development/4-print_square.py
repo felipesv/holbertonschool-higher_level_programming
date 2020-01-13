@@ -2,6 +2,7 @@
 """
 prints a square with the character #
 size: size of square
+
 """
 
 

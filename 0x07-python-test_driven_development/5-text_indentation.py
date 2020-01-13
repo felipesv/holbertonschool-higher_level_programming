@@ -2,6 +2,7 @@
 """
 prints a text with 2 new lines after each charac . ? :
 text: text to print
+
 """
 
 
