@@ -12,6 +12,9 @@ def print_square(size):
     if type(size) != int and type(size) != float:
         raise TypeError("size must be an integer")
 
+    if size < 0 and type(size) == float:
+        raise TypeError("size must be an integer")
+
     if size < 0:
         raise ValueError("size must be >= 0")
 
