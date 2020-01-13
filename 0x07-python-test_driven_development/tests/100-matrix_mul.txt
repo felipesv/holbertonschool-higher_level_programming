@@ -1,0 +1,46 @@
+The ``matrix_mul`` module
+=========================
+
+Testing ``matrix_mul``
+----------------------
+
+import the matrix_mul module.
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+2x2 arrays
+>>> matrix_mul([[2, 0], [1, 3]], [[-1, -1], [5, 6]])
+[[-2, -2], [14, 17]]
+
+invalid matrix a
+>>> matrix_mul(True, [[1, 3], [1, 3]])
+Traceback (most recent call last):
+TypeError: m_a must be a list
+
+invalid matrix b
+>>> matrix_mul([[1, 3], [1, 3]], (1, 3))
+Traceback (most recent call last):
+TypeError: m_b must be a list
+
+invalid matrix (list of tuplas)
+>>> matrix_mul([(1, 2), (3, 4)], [[1, 3], [3, 4]])
+Traceback (most recent call last):
+TypeError: m_a must be a list of lists
+
+invalid matrix (empty)
+>>> matrix_mul([[1, 2]], [])
+Traceback (most recent call last):
+ValueError: m_b can't be empty
+
+invalid matrix (list of others)
+>>> matrix_mul([[1, 2], [3, 4]], [["1", True], [3, 4]])
+Traceback (most recent call last):
+TypeError: m_b should contain only integers or floats
+
+valid multiply
+>>> matrix_mul([[1, 2]], [[1, 1], [3, 4]])
+[[7, 9]]
+
+invalid len
+>>> matrix_mul([[1, 2, 3], [3, 4]], [[1, 2]])
+Traceback (most recent call last):
+TypeError: each row of m_a must be of the same size
