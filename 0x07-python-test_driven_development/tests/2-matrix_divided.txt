@@ -45,12 +45,12 @@ TypeError: div must be a number
 passing a valid list and div by 0
 >>> matrix_divided([[1,2,3]], 0)
 Traceback (most recent call last):
-TypeError: division by zero
+ZeroDivisionError: division by zero
 
 passing a valid list and invalid div 
 >>> matrix_divided([[1,2,3]], 0)
 Traceback (most recent call last):
-TypeError: division by zero
+ZeroDivisionError: division by zero
 
 passing a valid list and valid div 
 >>> matrix_divided([[2, 4, 6], [8, 10, 12]], 2)
