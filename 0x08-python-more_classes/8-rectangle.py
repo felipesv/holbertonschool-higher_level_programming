@@ -9,12 +9,16 @@ class Rectangle:
     Class to create a rectangle
     """
 
+    number_of_instances = 0
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """
         constructor
         """
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -75,7 +79,7 @@ class Rectangle:
         if self.__width != 0 and self.__height != 0:
             rest = ""
             for i in range(self.__height):
-                rest += "#" * self.__width
+                rest += str(self.print_symbol) * self.__width
                 rest += "\n"
 
         return rest
@@ -86,3 +90,28 @@ class Rectangle:
         """
         return 'Rectangle(width=' + str(self.__width) \
             + ', height=' + str(self.__height) + ')'
+
+    def __del__(self):
+        """
+        msg to display when a instance is deleted
+        """
+        print("Bye rectangle...")
+        if Rectangle.number_of_instances > 0:
+            Rectangle.number_of_instances -= 1
+
+    def bigger_or_equal(rect_1, rect_2):
+        """
+        biggest rectangle
+        """
+        if type(rect_1) != Rectangle:
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if type(rect_2) != Rectangle:
+            raise TypeError("rect_2 must be an instance of Rectangle")
+
+        area_1 = rect_1.area()
+        area_2 = rect_2.area()
+
+        if area_1 > area_2 or area_1 == area_2:
+            return rect_1
+        else: 
+            return rect_2

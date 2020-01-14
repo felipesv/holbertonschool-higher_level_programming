@@ -71,6 +71,9 @@ class Rectangle:
             return 2 * (self.__height + self.__width)
 
     def __str__(self):
+        """
+        get the rectangle stirng format
+        """
         rest = ""
         if self.__width != 0 and self.__height != 0:
             rest = ""
