@@ -84,5 +84,5 @@ class Rectangle:
         """
         return the string to create it self
         """
-        return 'Rectangle(width=' + str(self.__width) \
-            + ', height=' + str(self.__height) + ')'
+        return 'Rectangle(' + str(self.__width) \
+            + ', ' + str(self.__height) + ')'
