@@ -30,3 +30,8 @@ passing invalid first name
 >>> say_my_name("Jhon", None)
 Traceback (most recent call last):
 TypeError: last_name must be a string
+
+passin 0 arguments
+>>> say_my_name()
+Traceback (most recent call last)
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
