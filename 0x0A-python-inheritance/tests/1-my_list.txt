@@ -1,11 +1,10 @@
-
 The ``MyList`` module
 =====================
 
 Using ``MyList``
 ----------------
 
-import the add_integer module.
+import the MyList class.
 >>> MyList = __import__('1-my_list').MyList
 
 Only one value
