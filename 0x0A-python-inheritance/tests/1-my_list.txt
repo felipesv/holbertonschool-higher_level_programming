@@ -1,0 +1,101 @@
+The ``MyList`` module
+=====================
+
+Using ``MyList``
+----------------
+
+import the MyList class.
+>>> MyList = __import__('1-my_list').MyList
+
+Only one value
+>>> my_list = MyList()
+>>> my_list.append(0)
+>>> my_list.print_sorted()
+[0]
+
+All positive number
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(4)
+>>> my_list.append(5)
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+All negative number
+>>> my_list = MyList()
+>>> my_list.append(-1)
+>>> my_list.append(-2)
+>>> my_list.append(-3)
+>>> my_list.append(-4)
+>>> my_list.append(-5)
+>>> my_list.print_sorted()
+[-5, -4, -3, -2, -1]
+
+negative and positive numbers
+>>> my_list = MyList()
+>>> my_list.append(-1)
+>>> my_list.append(1)
+>>> my_list.append(2)
+>>> my_list.append(-2)
+>>> my_list.print_sorted()
+[-2, -1, 1, 2]
+
+a number a lot of times
+>>> my_list = MyList()
+>>> my_list.append(2)
+>>> my_list.append(2)
+>>> my_list.append(2)
+>>> my_list.append(2)
+>>> my_list.append(2)
+>>> my_list.append(2)
+>>> my_list.append(2)
+>>> my_list.append(2)
+>>> my_list.print_sorted()
+[2, 2, 2, 2, 2, 2, 2, 2]
+
+empty list
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
+
+zero and a negative number
+>>> my_list = MyList()
+>>> my_list.append(0)
+>>> my_list.append(-1)
+>>> my_list.print_sorted()
+[-1, 0]
+
+using the int function
+>>> my_list = MyList()
+>>> my_list.append(int("9998"))
+>>> my_list.append(123)
+>>> my_list.append(1092)
+>>> my_list.print_sorted()
+[123, 1092, 9998]
+
+using int and abs function
+>>> my_list = MyList()
+>>> my_list.append(int("98"))
+>>> my_list.append(int(12.4))
+>>> my_list.append(abs(-1))
+>>> my_list.print_sorted()
+[1, 12, 98]
+
+using a negative number
+>>> my_list = MyList()
+>>> my_list.append(-1)
+>>> my_list.print_sorted()
+[-1]
+
+using a negative number
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(1)
+>>> my_list.append(0)
+>>> my_list.append(0)
+>>> my_list.append(-1)
+>>> my_list.append(-1)
+>>> my_list.print_sorted()
+[-1, -1, 0, 0, 1, 1]
