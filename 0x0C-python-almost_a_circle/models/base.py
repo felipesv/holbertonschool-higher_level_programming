@@ -17,6 +17,7 @@ class Base:
                 else:
                         self.id = id
 
+        @staticmethod
         def to_json_string(list_dictionaries):
                 """SON string representation of list_dictionaries"""
                 if not list_dictionaries or list_dictionaries is None:
@@ -41,6 +42,7 @@ class Base:
 
         @classmethod
         def create(cls, **dictionary):
+                """new instance with all attributes already set"""
                 if cls.__name__ == "Rectangle":
                         new = cls(1, 1)
                 else:
@@ -50,10 +52,10 @@ class Base:
 
         @classmethod
         def load_from_file(cls):
+                """ist of instances"""
                 _file = cls.__name__ + ".json"
 
                 try:
                         pass
                 except Exception:
                         return []
-                        
