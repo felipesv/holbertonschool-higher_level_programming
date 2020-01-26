@@ -9,8 +9,6 @@ class Base:
 
         def __init__(self, id=None):
                 """Constructor"""
-                self.__nb_objects = 0
-
                 if id is None:
                         Base.__nb_objects += 1
                         self.id = Base.__nb_objects
@@ -56,6 +54,11 @@ class Base:
                 _file = cls.__name__ + ".json"
 
                 try:
-                        pass
+                        _list = []
+                        with open(_file, mode="r", encoding="utf-8") as file:
+                                _dict = cls.from_json_string(file.read())
+                        for i in _dict:
+                                _list.append(cls.create(**i))
+                        return _list
                 except Exception:
                         return []
