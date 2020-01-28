@@ -87,6 +87,11 @@ class TestClassBase(unittest.TestCase):
         list_rectangles_output = Rectangle.load_from_file()
         self.assertEqual(str(objSpec), str(list_rectangles_output[0]))
 
+        objSpec = Square(2, 0, 0, 67)
+        Square.save_to_file([objSpec])
+        list_Squares_output = Square.load_from_file()
+        self.assertEqual(str(objSpec), str(list_Squares_output[0]))
+
     @staticmethod
     def capture_stdout(obj, method):
         """
