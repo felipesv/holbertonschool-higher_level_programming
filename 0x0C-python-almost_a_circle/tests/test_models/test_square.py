@@ -108,6 +108,24 @@ class TestClassSquare(unittest.TestCase):
         correct = "[Square] (10) 10/10 - 10\n"
         self.assertEqual(correct, capture.getvalue())
 
+    def test_display2(self):
+        """
+        test display with x and y
+        """
+        obj1 = Square(1)
+        self.assertEqual(obj1.display(), None)
+        obj1 = Square(3)
+        obj1.id = 8
+        self.assertEqual(obj1.display(), None)
+        obj1 = Square(1, 1, 1)
+        capture = TestClassSquare.capture_stdout(obj1, "display")
+        correct = "\n #\n"
+        self.assertEqual(correct, capture.getvalue())
+        obj1 = Square(2, 0, 1)
+        capture = TestClassSquare.capture_stdout(obj1, "display")
+        correct = "\n##\n##\n"
+        self.assertEqual(correct, capture.getvalue())
+
     def test_update2(self):
         """
         test update kwars

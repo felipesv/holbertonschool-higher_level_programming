@@ -128,6 +128,24 @@ class TestClassRectangle(unittest.TestCase):
         correct = "[Rectangle] (10) 10/10 - 10/10\n"
         self.assertEqual(correct, capture.getvalue())
 
+    def test_display2(self):
+        """
+        test display
+        """
+        obj1 = Rectangle(1, 1)
+        self.assertEqual(obj1.display(), None)
+        obj1 = Rectangle(3, 1)
+        obj1.id = 8
+        self.assertEqual(obj1.display(), None)
+        obj1 = Rectangle(1, 1, 1, 1)
+        capture = TestClassRectangle.capture_stdout(obj1, "display")
+        correct = "\n #\n"
+        self.assertEqual(correct, capture.getvalue())
+        obj1 = Rectangle(1, 2, 2, 2)
+        capture = TestClassRectangle.capture_stdout(obj1, "display")
+        correct = "\n\n  #\n  #\n"
+        self.assertEqual(correct, capture.getvalue())
+
     @staticmethod
     def capture_stdout(obj, method):
         """
