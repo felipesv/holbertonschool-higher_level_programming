@@ -64,6 +64,7 @@ class TestClassBase(unittest.TestCase):
         obj14 = Rectangle(1, 1, 1, 1)
         self.assertEqual(obj14.id, 8)
 
+
     def test_json_stirng(self):
         """
         test JSON to string
