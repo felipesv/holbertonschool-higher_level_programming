@@ -146,6 +146,23 @@ class TestClassSquare(unittest.TestCase):
         correct = "[Square] (10) 10/10 - 10\n"
         self.assertEqual(correct, capture.getvalue())
 
+    def test_to_dic(self):
+        """
+        test to dict
+        """
+        r1 = Square(10, 2, 1, 9)
+        r1_dictionary = r1.to_dictionary()
+        self.assertDictEqual(r1_dictionary, {'id': 9,
+                                             'size': 10,
+                                             'x': 2,
+                                             'y': 1})
+        r1 = Square(10, 5, 1, 10)
+        r1_dictionary = r1.to_dictionary()
+        self.assertDictEqual(r1_dictionary, {'id': 10,
+                                             'size': 10,
+                                             'x': 5,
+                                             'y': 1})
+
     @staticmethod
     def capture_stdout(obj, method):
         """

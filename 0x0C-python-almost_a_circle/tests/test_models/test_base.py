@@ -3,6 +3,8 @@
 Unittest for Class Base
 """
 import unittest
+import sys
+import io
 from models.base import Base
 from models.square import Square
 from models.rectangle import Rectangle
@@ -61,3 +63,30 @@ class TestClassBase(unittest.TestCase):
         self.assertEqual(obj13.id, 100)
         obj14 = Rectangle(1, 1, 1, 1)
         self.assertEqual(obj14.id, 8)
+
+    def test_json_stirng(self):
+        """
+        test JSON to string
+        """
+        _list = [{"size": 1, "id": 1, "height": 1}]
+        json_str = Square.to_json_string(_list)
+        res = Square.from_json_string(json_str)
+        self.assertEqual(res, _list)
+        _list = [{"size": 9, "id": 2, "height": 8}]
+        json_str = Square.to_json_string(_list)
+        res = Square.from_json_string(json_str)
+        self.assertEqual(res, _list)
+
+    @staticmethod
+    def capture_stdout(obj, method):
+        """
+        return the stdoutput bdbaraban
+        """
+        ioValue = io.StringIO()
+        sys.stdout = ioValue
+        if method == "print":
+            print(obj)
+        else:
+            obj.display()
+        sys.stdout = sys.__stdout__
+        return ioValue
