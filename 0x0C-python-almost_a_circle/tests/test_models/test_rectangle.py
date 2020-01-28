@@ -88,6 +88,26 @@ class TestClassRectangle(unittest.TestCase):
         correct = "[Rectangle] ({}) 1/1 - 12/9\n".format(obj1.id)
         self.assertEqual(correct, capture.getvalue())
 
+    def test_update(self):
+        """
+        test update args
+        """
+        r1 = Rectangle(10, 10)
+        r1.update(89)
+        capture = TestClassRectangle.capture_stdout(r1, "print")
+        correct = "[Rectangle] (89) 0/0 - 10/10\n"
+        self.assertEqual(correct, capture.getvalue())
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update(89, 29)
+        capture = TestClassRectangle.capture_stdout(r1, "print")
+        correct = "[Rectangle] (89) 10/10 - 29/10\n"
+        self.assertEqual(correct, capture.getvalue())
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update()
+        capture = TestClassRectangle.capture_stdout(r1, "print")
+        correct = "[Rectangle] (10) 10/10 - 10/10\n"
+        self.assertEqual(correct, capture.getvalue())
+
     @staticmethod
     def capture_stdout(obj, method):
         """
