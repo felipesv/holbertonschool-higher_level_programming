@@ -150,16 +150,16 @@ class TestClassRectangle(unittest.TestCase):
         """
         test to dict
         """
-        r1 = Rectangle(10, 2, 1, 9)
+        r1 = Rectangle(10, 2, 1, 9, 90)
         r1_dictionary = r1.to_dictionary()
-        self.assertDictEqual(r1_dictionary, {'id': 27,
+        self.assertDictEqual(r1_dictionary, {'id': 90,
                                              'width': 10,
                                              'height': 2,
                                              'x': 1,
                                              'y': 9})
-        r1 = Rectangle(10, 5, 1, 10)
+        r1 = Rectangle(10, 5, 1, 10, 98)
         r1_dictionary = r1.to_dictionary()
-        self.assertDictEqual(r1_dictionary, {'id': 28,
+        self.assertDictEqual(r1_dictionary, {'id': 98,
                                              'width': 10,
                                              'height': 5,
                                              'x': 1,

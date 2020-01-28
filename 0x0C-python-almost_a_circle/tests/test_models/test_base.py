@@ -68,14 +68,24 @@ class TestClassBase(unittest.TestCase):
         """
         test JSON to string
         """
-        _list = [{"size": 1, "id": 1, "height": 1}]
+        _list = [{"size": 1, "id": 1}]
         json_str = Square.to_json_string(_list)
         res = Square.from_json_string(json_str)
         self.assertEqual(res, _list)
-        _list = [{"size": 9, "id": 2, "height": 8}]
-        json_str = Square.to_json_string(_list)
-        res = Square.from_json_string(json_str)
+
+        _list = [{"width": 9, "id": 2, "height": 8}]
+        json_str = Rectangle.to_json_string(_list)
+        res = Rectangle.from_json_string(json_str)
         self.assertEqual(res, _list)
+
+    def test_save_file(self):
+        """
+        test save to file
+        """
+        objSpec = Rectangle(2, 4, 0, 0, 67)
+        Rectangle.save_to_file([objSpec])
+        list_rectangles_output = Rectangle.load_from_file()
+        self.assertEqual(str(objSpec), str(list_rectangles_output[0]))
 
     @staticmethod
     def capture_stdout(obj, method):
