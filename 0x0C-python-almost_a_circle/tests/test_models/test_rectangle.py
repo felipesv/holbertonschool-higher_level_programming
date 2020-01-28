@@ -108,6 +108,26 @@ class TestClassRectangle(unittest.TestCase):
         correct = "[Rectangle] (10) 10/10 - 10/10\n"
         self.assertEqual(correct, capture.getvalue())
 
+    def test_update2(self):
+        """
+        test update kwargs
+        """
+        r1 = Rectangle(10, 10)
+        r1.update(id=89)
+        capture = TestClassRectangle.capture_stdout(r1, "print")
+        correct = "[Rectangle] (89) 0/0 - 10/10\n"
+        self.assertEqual(correct, capture.getvalue())
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update(width=29, id=89)
+        capture = TestClassRectangle.capture_stdout(r1, "print")
+        correct = "[Rectangle] (89) 10/10 - 29/10\n"
+        self.assertEqual(correct, capture.getvalue())
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update()
+        capture = TestClassRectangle.capture_stdout(r1, "print")
+        correct = "[Rectangle] (10) 10/10 - 10/10\n"
+        self.assertEqual(correct, capture.getvalue())
+
     @staticmethod
     def capture_stdout(obj, method):
         """
