@@ -147,6 +147,9 @@ class TestClassRectangle(unittest.TestCase):
         self.assertEqual(correct, capture.getvalue())
 
     def test_to_dic(self):
+        """
+        test to dict
+        """
         r1 = Rectangle(10, 2, 1, 9)
         r1_dictionary = r1.to_dictionary()
         capture = TestClassRectangle.capture_stdout(r1_dictionary, "print")
