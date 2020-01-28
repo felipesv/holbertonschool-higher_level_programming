@@ -62,6 +62,14 @@ class TestClassRectangle(unittest.TestCase):
         obj1 = Rectangle(3, 1)
         obj1.id = 8
         self.assertEqual(obj1.display(), None)
+        obj1 = Rectangle(1, 1)
+        capture = TestClassRectangle.capture_stdout(obj1, "display")
+        correct = "#\n"
+        self.assertEqual(correct, capture.getvalue())
+        obj1 = Rectangle(1, 2)
+        capture = TestClassRectangle.capture_stdout(obj1, "display")
+        correct = "#\n#\n"
+        self.assertEqual(correct, capture.getvalue())
 
     def test_str_(self):
         """
@@ -78,6 +86,76 @@ class TestClassRectangle(unittest.TestCase):
         obj1 = Rectangle(12, 9, 1, 1)
         capture = TestClassRectangle.capture_stdout(obj1, "print")
         correct = "[Rectangle] ({}) 1/1 - 12/9\n".format(obj1.id)
+        self.assertEqual(correct, capture.getvalue())
+
+    def test_update(self):
+        """
+        test update args
+        """
+        r1 = Rectangle(10, 10)
+        r1.update(89)
+        capture = TestClassRectangle.capture_stdout(r1, "print")
+        correct = "[Rectangle] (89) 0/0 - 10/10\n"
+        self.assertEqual(correct, capture.getvalue())
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update(89, 29)
+        capture = TestClassRectangle.capture_stdout(r1, "print")
+        correct = "[Rectangle] (89) 10/10 - 29/10\n"
+        self.assertEqual(correct, capture.getvalue())
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update()
+        capture = TestClassRectangle.capture_stdout(r1, "print")
+        correct = "[Rectangle] (10) 10/10 - 10/10\n"
+        self.assertEqual(correct, capture.getvalue())
+
+    def test_update2(self):
+        """
+        test update kwargs
+        """
+        r1 = Rectangle(10, 10)
+        r1.update(id=89)
+        capture = TestClassRectangle.capture_stdout(r1, "print")
+        correct = "[Rectangle] (89) 0/0 - 10/10\n"
+        self.assertEqual(correct, capture.getvalue())
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update(width=29, id=89)
+        capture = TestClassRectangle.capture_stdout(r1, "print")
+        correct = "[Rectangle] (89) 10/10 - 29/10\n"
+        self.assertEqual(correct, capture.getvalue())
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update()
+        capture = TestClassRectangle.capture_stdout(r1, "print")
+        correct = "[Rectangle] (10) 10/10 - 10/10\n"
+        self.assertEqual(correct, capture.getvalue())
+
+    def test_display2(self):
+        """
+        test display
+        """
+        obj1 = Rectangle(1, 1)
+        self.assertEqual(obj1.display(), None)
+        obj1 = Rectangle(3, 1)
+        obj1.id = 8
+        self.assertEqual(obj1.display(), None)
+        obj1 = Rectangle(1, 1, 1, 1)
+        capture = TestClassRectangle.capture_stdout(obj1, "display")
+        correct = "\n #\n"
+        self.assertEqual(correct, capture.getvalue())
+        obj1 = Rectangle(1, 2, 2, 2)
+        capture = TestClassRectangle.capture_stdout(obj1, "display")
+        correct = "\n\n  #\n  #\n"
+        self.assertEqual(correct, capture.getvalue())
+
+    def test_to_dic(self):
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_dictionary = r1.to_dictionary()
+        capture = TestClassRectangle.capture_stdout(r1_dictionary, "print")
+        correct = "{'id': 27, 'width': 10, 'height': 2, 'x': 1, 'y': 9}\n"
+        self.assertEqual(correct, capture.getvalue())
+        r1 = Rectangle(10, 5, 1, 10)
+        r1_dictionary = r1.to_dictionary()
+        capture = TestClassRectangle.capture_stdout(r1_dictionary, "print")
+        correct = "{'id': 28, 'width': 10, 'height': 5, 'x': 1, 'y': 10}\n"
         self.assertEqual(correct, capture.getvalue())
 
     @staticmethod

@@ -88,6 +88,76 @@ class TestClassSquare(unittest.TestCase):
         correct = "[Square] ({}) 1/1 - 12\n".format(obj1.id)
         self.assertEqual(correct, capture.getvalue())
 
+    def test_update(self):
+        """
+        test update args
+        """
+        r1 = Square(10)
+        r1.update(89)
+        capture = TestClassSquare.capture_stdout(r1, "print")
+        correct = "[Square] (89) 0/0 - 10\n"
+        self.assertEqual(correct, capture.getvalue())
+        r1 = Square(10, 10, 10, 10)
+        r1.update(89, 29)
+        capture = TestClassSquare.capture_stdout(r1, "print")
+        correct = "[Square] (89) 10/10 - 29\n"
+        self.assertEqual(correct, capture.getvalue())
+        r1 = Square(10, 10, 10, 10)
+        r1.update()
+        capture = TestClassSquare.capture_stdout(r1, "print")
+        correct = "[Square] (10) 10/10 - 10\n"
+        self.assertEqual(correct, capture.getvalue())
+
+    def test_update2(self):
+        """
+        test update kwars
+        """
+        r1 = Square(10)
+        r1.update(id=89)
+        capture = TestClassSquare.capture_stdout(r1, "print")
+        correct = "[Square] (89) 0/0 - 10\n"
+        self.assertEqual(correct, capture.getvalue())
+        r1 = Square(10, 10, 10, 10)
+        r1.update(width=29, id=89)
+        capture = TestClassSquare.capture_stdout(r1, "print")
+        correct = "[Square] (89) 10/10 - 29\n"
+        self.assertEqual(correct, capture.getvalue())
+        r1 = Square(10, 10, 10, 10)
+        r1.update()
+        capture = TestClassSquare.capture_stdout(r1, "print")
+        correct = "[Square] (10) 10/10 - 10\n"
+        self.assertEqual(correct, capture.getvalue())
+
+    def test_display2(self):
+        """
+        test display with x and y
+        """
+        obj1 = Square(1)
+        self.assertEqual(obj1.display(), None)
+        obj1 = Square(3)
+        obj1.id = 8
+        self.assertEqual(obj1.display(), None)
+        obj1 = Square(1, 1, 1)
+        capture = TestClassSquare.capture_stdout(obj1, "display")
+        correct = "\n #\n"
+        self.assertEqual(correct, capture.getvalue())
+        obj1 = Square(2, 0, 1)
+        capture = TestClassSquare.capture_stdout(obj1, "display")
+        correct = "\n##\n##\n"
+        self.assertEqual(correct, capture.getvalue())
+
+    def test_to_dic(self):
+        r1 = Square(10, 2, 1, 9)
+        r1_dictionary = r1.to_dictionary()
+        capture = TestClassSquare.capture_stdout(r1_dictionary, "print")
+        correct = "{'id': 9, 'size': 10, 'x': 2, 'y': 1}\n"
+        self.assertEqual(correct, capture.getvalue())
+        r1 = Square(10, 5, 1, 10)
+        r1_dictionary = r1.to_dictionary()
+        capture = TestClassSquare.capture_stdout(r1_dictionary, "print")
+        correct = "{'id': 10, 'size': 10, 'x': 5, 'y': 1}\n"
+        self.assertEqual(correct, capture.getvalue())
+
     @staticmethod
     def capture_stdout(obj, method):
         """
