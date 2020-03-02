@@ -1,3 +1,3 @@
 -- count elements in a table
 -- table name first_table
-SELECT COUNT(*) FROM first_table WHERE score = 89;
+SELECT COUNT(*) FROM first_table WHERE id = 89;
