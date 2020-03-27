@@ -22,8 +22,6 @@ if __name__ == "__main__":
     # get the data - there are objects
     _filter = State.name.like(func.binary('%a%'))
     records = session.query(State).filter(_filter).all()
-    if not records:
-            print("Nothing")
     for row in records:
         print("{}: {}".format(row.id, row.name))
     # close session
