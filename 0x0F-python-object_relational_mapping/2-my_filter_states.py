@@ -9,6 +9,7 @@ import MySQLdb
 username = sys.argv[1]
 password = sys.argv[2]
 database = sys.argv[3]
+name_inp = sys.argv[4]
 
 # connect to the db
 db = MySQLdb.connect(
@@ -24,8 +25,7 @@ cursor = db.cursor()
 # create query
 sql = "SELECT *\
        FROM states\
-       WHERE name\
-       LIKE BINARY 'N%'\
+       WHERE name = '" + name_inp + "'\
        ORDER BY states.id ASC"
 # Exceute the query
 cursor.execute(sql)
