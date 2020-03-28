@@ -26,7 +26,7 @@ if __name__ == '__main__':
     # create query
     sql = "SELECT *\
         FROM states\
-        WHERE name = '{}'\
+        WHERE BINARY name = '{}'\
         ORDER BY states.id ASC".format(name_inp)
     # Exceute the query
     cursor.execute(sql)
