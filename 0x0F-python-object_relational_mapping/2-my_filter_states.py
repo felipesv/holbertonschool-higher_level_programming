@@ -26,8 +26,8 @@ if __name__ == '__main__':
     # create query
     sql = "SELECT *\
         FROM states\
-        WHERE name = '" + name_inp + "'\
-        ORDER BY states.id ASC"
+        WHERE name = '{}'\
+        ORDER BY states.id ASC".format(name_inp)
     # Exceute the query
     cursor.execute(sql)
     # fetches all and return list a tuples
