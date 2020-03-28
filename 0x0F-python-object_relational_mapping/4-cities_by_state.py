@@ -23,8 +23,10 @@ if __name__ == '__main__':
     # Cursor class
     cursor = db.cursor()
     # create query
-    sql = "SELECT *\
+    sql = "SELECT cities.id, cities.name, states.name\
         FROM cities\
+        LEFT JOIN states\
+        ON cities.state_id = states.id\
         ORDER BY cities.id ASC"
     # Exceute the query
     cursor.execute(sql)
