@@ -18,10 +18,10 @@ if __name__ == "__main__":
     # create a Session
     session = Session()
     # get the data - there are objects
-    records = session.query(State).limit(1)
+    records = session.query(State).first()
     if not records:
             print("Nothing")
-    for row in records:
-        print("{}: {}".format(row.id, row.name))
+    else:
+        print("{}: {}".format(records.id, records.name))
     # close session
     session.close()
