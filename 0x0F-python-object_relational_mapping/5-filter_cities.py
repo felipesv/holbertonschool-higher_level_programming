@@ -28,7 +28,7 @@ if __name__ == '__main__':
         FROM cities\
         INNER JOIN states\
         ON cities.state_id = states.id\
-        WHERE states.name = %s\
+        AND states.name = %s\
         ORDER BY cities.id ASC"
     # Exceute the query
     cursor.execute(sql, (name_inp, ))
@@ -39,7 +39,6 @@ if __name__ == '__main__':
     for row in records:
         print("{}{}".format(separator, row[0]), end="")
         separator = ", "
-    if records:
-        print("")
+    print("")
     cursor.close()
     db.close()
