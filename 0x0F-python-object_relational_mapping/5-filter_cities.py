@@ -28,7 +28,7 @@ if __name__ == '__main__':
         FROM cities\
         INNER JOIN states\
         ON cities.state_id = states.id\
-        AND states.name = %s\
+        WHERE states.name = %s\
         ORDER BY cities.id ASC"
     # Exceute the query
     cursor.execute(sql, (name_inp, ))
