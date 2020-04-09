@@ -19,10 +19,11 @@ def find_peak(list_of_integers):
             if middle_number > prev_number and middle_number > next_number:
                 return middle_number
             elif middle_number < prev_number:
-                newList = list_of_integers[int(len_list / 2) - 1:]
+                newList = list_of_integers[:int(len_list / 2)]
                 return find_peak(newList)
             else:
-                newList = list_of_integers[int(len_list / 2) + 1:]
+                newList = list_of_integers[int(len_list / 2):]
                 return find_peak(newList)
+                
 
     return None
