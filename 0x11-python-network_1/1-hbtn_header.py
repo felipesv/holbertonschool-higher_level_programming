@@ -8,4 +8,7 @@ if __name__ == '__main__':
     with urllib.request.urlopen(sys.argv[1]) as reponse:
         header = reponse.info().__dict__["_headers"]
         header = [item[1] for item in header if item[0] == "X-Request-Id"]
-        print(header[0])
+        try:
+            print(header[0])
+        except Exception:
+            print("None")
