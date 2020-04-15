@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 # sends a request to the URL
 import requests
+import sys
 
 
 if __name__ == '__main__':
-    r = requests.get("https://intranet.hbtn.io/status")
+    r = requests.get(sys.argv[1])
     print(r.__dict__["headers"]["X-Request-Id"])
